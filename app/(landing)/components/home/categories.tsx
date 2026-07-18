@@ -22,7 +22,7 @@ const CategoriesSection = () => {
             </Link>
         </div>
         
-        <div className="grid grid-cols-6 gap-8 mt-8">
+        <div className="grid grid-cols-6 gap-8 mt-5">
             {categoryList.map((category, index) => (
                 
                 <div 

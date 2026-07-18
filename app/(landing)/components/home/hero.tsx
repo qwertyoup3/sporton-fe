@@ -4,7 +4,9 @@ import Button from "../ui/button";
 
 const HeroSection = () => {
   return (
-    <section id="hero-section" className="container mx-auto h-screen flex">
+    <section 
+    id="hero-section" 
+    className="w-full max-w-[1440px] mx-auto min-h-screen relative pt-28 pb-24 mb-28 md:mb-44 overflow-hidden box-border">
       <div className="relative self-center">
         <Image src="/images/img-basketball.svg" alt="image sporton hero" width={432} height={423} className="grayscale absolute left-0 -top-20" />
         <div className="relative ml-40 w-1/2">
@@ -19,7 +21,6 @@ const HeroSection = () => {
             that moves as fast as you do. Premium fabrics. Unmatched comfort.
             Limitless motion.
           </p>
-          {/* Mengubah -mt-14 menjadi mt-8 */}
           <div className="flex gap-5 mt-8">
             <Button>
               Explore More

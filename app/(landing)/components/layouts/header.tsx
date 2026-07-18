@@ -13,21 +13,19 @@ const Header = () => {
                     height={30}
                 />
                 <nav className="flex gap-40 font-medium">
-                    {/* Perbaikan pada class after: left dan translate-x */}
                     <Link 
-                        href="/#" 
+                        href="#hero-section" 
                         className="relative after:content-[''] after:block after:bg-primary after:rounded-full after:h-[3px] after:w-1/2 after:absolute after:bottom-[-6px] after:left-1/2 after:-translate-x-1/2"
                     >
                         Home
                     </Link>
-                    <Link href="/#">Category</Link>
-                    <Link href="/#">Explore Products</Link> 
+                    <Link href="#categories-section">Category</Link>
+                    <Link href="#products-section">Explore Products</Link> 
                 </nav>
                 <div className="flex gap-10 items-center">
                     <FiSearch size={24} className="cursor-pointer" />
                     <div className="relative cursor-pointer">
                         <FiShoppingBag size={24}/>
-                        {/* Menyelaraskan teks angka di dalam badge keranjang */}
                         <div className="bg-primary rounded-full w-4 h-4 absolute -top-1 -right-1 text-[10px] text-white flex items-center justify-center font-bold">
                             3
                         </div>
