@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const FooterSection = () => {
   return (
-    <footer className="bg-[#1a1919] text-white font-sans px-5 py-10 md:px-20 md:py-14 box-border">
+    <footer className="bg-dark-alternate text-white font-sans px-5 py-10 md:px-20 md:py-14 box-border">
       
       <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-10 md:gap-0 pb-10">
         
@@ -43,7 +43,7 @@ const FooterSection = () => {
 
       <div className="border-t border-[#2d2c2c] pt-7 flex flex-col-reverse md:flex-row md:justify-between md:items-center gap-5 md:gap-0">
         <div className="text-[#b3b3b3] text-sm">
-          SportsOn &copy; 2025 All Rights Reserverd.
+          SportsOn &copy; 2025 All Rights Reserved.
         </div>
         
         <div className="flex gap-16 md:gap-32">
