@@ -1,61 +1,82 @@
 import Image from "next/image";
+import Link from "next/link";
+import Button from "../ui/button";
 import { FiPlus } from "react-icons/fi";
+import priceFormatter from "../../utils/price-formatter";
+
+
+const productList = [
+  {
+    name: "SportsOn Product 1",
+    category: "Running",
+    price: 450000,
+    imgUrl: "product-1.png",
+  },
+  {
+    name: "SportsOn Product 2",
+    category: "Running",
+    price: 250000,
+    imgUrl: "product-1.png",
+  },
+  {
+    name: "SportsOn Product 3",
+    category: "Running",
+    price: 230000,
+    imgUrl: "product-3.png",
+  },
+  {
+    name: "SportsOn Product 4",
+    category: "Running",
+    price: 440000,
+    imgUrl: "product-4.png",
+  },
+  {
+    name: "SportsOn Product 5",
+    category: "Running",
+    price: 550000,
+    imgUrl: "product-5.png",
+  },
+  {
+    name: "SportsOn Product 6",
+    category: "Running",
+    price: 650000,
+    imgUrl: "product-6.png",
+  },
+];
 
 const ProductsSection = () => {
-  const products = [
-    { id: 1, name: "SportsOn Hyperfast Shoes", category: "Running", price: "Rp. 329.000", imgSrc: "product-3.png" },
-    { id: 2, name: "SportsOn Rockets Tennis", category: "Tennis", price: "Rp. 999.000", imgSrc: "product-2.png" },
-    { id: 3, name: "SportsOn Slowlivin", category: "Running", price: "Rp. 119.000", imgSrc: "product-1.png" },
-    { id: 4, name: "SportsOn HyperSoccer v2", category: "Football", price: "Rp. 458.000", imgSrc: "product-4.png" },
-    { id: 5, name: "SportsOn HyperSoccer v2", category: "Football", price: "Rp. 458.000", imgSrc: "product-4.png" },
-    { id: 6, name: "SportsOn Slowlivin", category: "Running", price: "Rp. 119.000", imgSrc: "product-5.png" },
-    { id: 7, name: "SportsOn Hyperfast Shoes", category: "Running", price: "Rp. 329.000", imgSrc: "product-8.png" },
-    { id: 8, name: "SportsOn Rockets Tennis", category: "Tennis", price: "Rp. 999.000", imgSrc: "product-7.png" },
-  ];
-
   return (
-    <section id="products-section" className="bg-white my-20 md:my-28 py-16 md:py-20 px-5 md:px-20 font-sans">
-      <h2 className="text-center text-2xl md:text-3xl font-black italic tracking-wide text-[#1a1919] mb-12 uppercase">
-        <span className="text-[#ff5722]">Our</span> Products
+    <section id="products-section" className="container mx-auto mt-32 mb-52">
+      <h2 className="font-bold italic text-4xl text-center mb-11">
+        <span className="text-primary">OUR </span>PRODUCTS
       </h2>
-
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 max-w-7xl mx-auto">
-        {products.map((product) => (
-          <div 
-            key={product.id} 
-            className="flex flex-col group cursor-pointer p-3 rounded-md bg-transparent border border-transparent transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-gray-100/80"
+      <div className="grid grid-cols-4 gap-5">
+        {productList.map((product, index) => (
+          <Link
+            href={`/product/${product.name}`}
+            key={index}
+            className="p-1.5 bg-white hover:drop-shadow-xl duration-300"
           >
-            <div className="relative bg-primary-light rounded-sm aspect-square w-full flex items-center justify-center p-4 mb-4 overflow-hidden">
-              {product.imgSrc ? (
-                <Image
-                  src={`/images/products/${product.imgSrc}`} 
-                  width={220} 
-                  height={220} 
-                  alt={product.name} 
-                  className="max-h-full max-w-full object-contain object-center transition-transform duration-300 group-hover:scale-105"
-                />
-              ) : (
-                <span className="text-xs text-gray-400 italic">Image Space</span>
-              )}
-
-              <button className="absolute top-3 right-3 bg-[#ff5722] text-white w-6 h-6 flex items-center justify-center font-bold rounded-sm shadow-sm hover:bg-[#e04e1d] transition-colors duration-200">
-                <FiPlus size={16} />
-              </button>
+            <div className="bg-primary-light aspect-square w-full flex justify-center items-center relative">
+              <Image
+                src={`/images/products/${product.imgUrl}`}
+                alt={product.name}
+                width={300}
+                height={300}
+                className="aspect-square object-contain"
+              />
+              <Button className="w-10 h-10 p-2! absolute top-3 right-3 ">
+                <FiPlus size={24} />
+              </Button>
             </div>
-
-            <h3 className="text-[#1a1919] font-bold text-sm md:text-base tracking-tight mb-1 line-clamp-1">
-              {product.name}
-            </h3>
-
-            <div className="flex justify-between items-center mt-auto">
-              <span className="text-gray-400 text-xs md:text-sm">
-                {product.category}
-              </span>
-              <span className="text-[#ff5722] font-bold text-xs md:text-sm">
-                {product.price}
-              </span>
+            <h3 className="font-medium text-lg mb-1.5 mt-4">{product.name}</h3>
+            <div className="flex justify-between mb-8">
+              <div className="text-gray-500">{product.category}</div>
+              <div className="font-medium text-primary">
+                {priceFormatter(product.price)}
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
