@@ -1,5 +1,6 @@
 import Button from "@/app/(landing)/components/ui/button";
 import Modal from "../ui/modal";
+import ImageUploadPreview from "../ui/image-upload-preview";
 import { useState } from "react";
 import Image from "next/image";
 import priceFormatter from "@/app/utils/price-formatter";
@@ -87,7 +88,7 @@ const TransactionModal = ({
           <h4 className="font-semibold text-sm mb-2">Items Purchased</h4>
 
           <div className="space-y-3">
-            {transaction.purchasedItems.map((item, index) => (
+           {transaction.purchasedItems.map((item, index) => (
               <div
                 key={item.productId._id || index}
                 className="border border-gray-200 rounded-lg p-2 flex items-center gap-2"
